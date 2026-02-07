@@ -270,9 +270,9 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
     // Prepare data for chart
-    const dailyData = {{ stats.daily_stats | tojson }};
-    const labels = dailyData.map(item => item[0]).reverse();
-    const data = dailyData.map(item => item[1]).reverse();
+    var dailyData = JSON.parse('{{ stats.daily_stats | tojson | safe }}');
+    var labels = dailyData && dailyData.length > 0 ? dailyData.map(function (item) { return item[0]; }).reverse() : ['No data'];
+    var data = dailyData && dailyData.length > 0 ? dailyData.map(function (item) { return item[1]; }).reverse() : [0];
 
     // Create chart
     const ctx = document.getElementById('activityChart').getContext('2d');
