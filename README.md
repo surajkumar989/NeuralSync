@@ -314,8 +314,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 **Your Name**
 - GitHub: [Suraj-kumar](https://github.com/surajkumar989)
-- LinkedIn: [Suraj Kumar](https://linkedin.com/in/yourprofile)
-- Email: surajnkumar111@example.com
+- LinkedIn: [Suraj Kumar](https://linkedin.com/in/suraj-kumar-tech)
+- Email: surajnkumar111@gmail.com
 
 ---
 
