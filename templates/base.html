@@ -4,79 +4,156 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}NeuralSync{% endblock %}</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    <title>{% block title %}NeuralSync - Transparent AI Chatbot{% endblock %}</title>
+    <meta name="description"
+        content="Experience transparent AI conversations with cryptographic verification and complete history tracking.">
+    <meta name="keywords" content="AI Chatbot, NeuralSync, SHA-256 Security, Transparent AI, Cryptography">
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            background-attachment: fixed;
-        }
+    <!-- Favicon -->
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧠</text></svg>">
 
-        /* Navigation Bar */
-        .navbar {
-            background: rgba(255, 255, 255, 0.95);
-            padding: 15px 0;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
 
-        .navbar-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 20px;
-        }
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-        .navbar-brand {
-            font-size: 1.5em;
-            font-weight: bold;
-            color: #2c3e50;
-            text-decoration: none;
-        }
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-        .navbar-links {
-            display: flex;
-            gap: 30px;
-        }
+    <!-- CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 
-        .navbar-links a {
-            color: #2c3e50;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
+    <!-- Preload critical resources -->
+    <link rel="preload" href="{{ url_for('static', filename='css/style.css') }}" as="style">
 
-        .navbar-links a:hover {
-            color: #3498db;
-        }
-    </style>
+    {% block extra_css %}{% endblock %}
 </head>
 
 <body>
+    <!-- Navigation -->
+    <!-- Navigation -->
     <nav class="navbar">
         <div class="navbar-container">
-            <a href="/" class="navbar-brand">🧠 NeuralSync</a>
-            <div class="navbar-links">
-                <a href="/">Home</a>
-                <a href="/dashboard">Dashboard</a>
-                <a href="/history">History</a>
-                <a href="/about">About</a>
-            </div>
+            <a href="{{ url_for('index') }}" class="navbar-brand">
+                <i class="fas fa-brain navbar-logo"></i>
+                <span>NeuralSync</span>
+            </a>
+    
+            <ul class="navbar-links">
+                <li><a href="{{ url_for('index') }}" class="nav-link">Home</a></li>
+                <li><a href="{{ url_for('chat') }}" class="nav-link">Chat</a></li>
+                <li><a href="{{ url_for('dashboard') }}" class="nav-link">Dashboard</a></li>
+                <li><a href="{{ url_for('history') }}" class="nav-link">History</a></li>
+                <li><a href="{{ url_for('about') }}" class="nav-link">About</a></li>
+                <li><a href="{{ url_for('contact') }}" class="nav-link">Contact</a></li>
+            </ul>
+    
+            <a href="{{ url_for('chat') }}" class="navbar-cta">
+                <i class="fas fa-comments"></i> Start Chat
+            </a>
+    
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
         </div>
     </nav>
 
-    {% block content %}{% endblock %}
+    <!-- Main Content -->
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>🧠 NeuralSync</h3>
+                <p style="color: var(--text-secondary); line-height: 1.8;">
+                    Experience the future of transparent AI interaction with blockchain-inspired security and complete
+                    conversation verification.
+                </p>
+                <div class="social-links" style="margin-top: 20px;">
+                    <a href="https://github.com" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="https://twitter.com" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="https://linkedin.com" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://discord.com" target="_blank" title="Discord"><i class="fab fa-discord"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h3>Navigation</h3>
+                <ul>
+                    <li><a href="{{ url_for('index') }}">Home</a></li>
+                    <li><a href="{{ url_for('chat') }}">Chat</a></li>
+                    <li><a href="{{ url_for('dashboard') }}">Dashboard</a></li>
+                    <li><a href="{{ url_for('history') }}">History</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Resources</h3>
+                <ul>
+                    <li><a href="{{ url_for('about') }}">About Us</a></li>
+                    <li><a href="{{ url_for('privacy') }}">Privacy Policy</a></li>
+                    <li><a href="{{ url_for('contact') }}">Contact</a></li>
+                    <li><a href="#">Documentation</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Technology</h3>
+                <ul>
+                    <li><a href="#">SHA-256 Security</a></li>
+                    <li><a href="#">API Documentation</a></li>
+                    <li><a href="#">Open Source</a></li>
+                    <li><a href="#">Contributing</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2024 NeuralSync. All rights reserved.</p>
+            <div style="display: flex; gap: 30px;">
+                <a href="{{ url_for('privacy') }}"
+                    style="color: var(--text-secondary); text-decoration: none; font-size: 0.9em;">Privacy Policy</a>
+                <a href="#" style="color: var(--text-secondary); text-decoration: none; font-size: 0.9em;">Terms of
+                    Service</a>
+                <a href="#" style="color: var(--text-secondary); text-decoration: none; font-size: 0.9em;">Cookie
+                    Policy</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
+    {% block extra_js %}{% endblock %}
+
+    <!-- Analytics -->
+    <script>
+        // Simple analytics (in production, use a proper analytics service)
+        window.addEventListener('load', function () {
+            const sessionId = localStorage.getItem('neural_sync_session_id');
+            if (sessionId) {
+                // Send page view to analytics endpoint
+                fetch('/api/analytics/pageview', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        session_id: sessionId,
+                        page: window.location.pathname,
+                        referrer: document.referrer
+                    })
+                }).catch(console.error);
+            }
+        });
+    </script>
 </body>
 
 </html>

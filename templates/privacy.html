@@ -1,0 +1,381 @@
+{% extends "base.html" %}
+
+{% block title %}Privacy Policy - NeuralSync{% endblock %}
+
+{% block content %}
+<style>
+    /* =============================================
+       PRIVACY PAGE STYLES
+       ============================================= */
+    .privacy-container {
+        margin-top: 70px;
+        padding: 40px 0;
+    }
+
+    .privacy-header {
+        text-align: center;
+        margin-bottom: 60px;
+        animation: fadeInUp 0.6s ease-out;
+    }
+
+    .privacy-header h1 {
+        font-family: 'Space Grotesk', sans-serif;
+        font-size: 2.5em;
+        background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-bottom: 20px;
+    }
+
+    .privacy-header p {
+        color: var(--text-secondary);
+        font-size: 1.1em;
+    }
+
+    /* Accordion */
+    .accordion {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .accordion-item {
+        background: var(--glass-bg);
+        border: 1px solid var(--glass-border);
+        border-radius: 15px;
+        overflow: hidden;
+        transition: all 0.3s ease;
+        animation: slideInUp 0.4s ease-out;
+    }
+
+    .accordion-item:nth-child(2) {
+        animation-delay: 0.1s;
+    }
+
+    .accordion-item:nth-child(3) {
+        animation-delay: 0.2s;
+    }
+
+    .accordion-item:nth-child(4) {
+        animation-delay: 0.3s;
+    }
+
+    .accordion-item:nth-child(5) {
+        animation-delay: 0.4s;
+    }
+
+    .accordion-item:nth-child(6) {
+        animation-delay: 0.5s;
+    }
+
+    .accordion-item.active {
+        border-color: var(--accent-blue);
+        box-shadow: 0 15px 40px rgba(0, 207, 255, 0.1);
+    }
+
+    .accordion-header {
+        padding: 25px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        transition: all 0.3s ease;
+        font-family: 'Space Grotesk', sans-serif;
+        color: var(--text-primary);
+        font-size: 1.1em;
+        font-weight: 600;
+    }
+
+    .accordion-header:hover {
+        color: var(--accent-blue);
+    }
+
+    .accordion-icon {
+        color: var(--accent-blue);
+        transition: transform 0.3s ease;
+        font-size: 1.2em;
+    }
+
+    .accordion-item.active .accordion-icon {
+        transform: rotate(180deg);
+    }
+
+    .accordion-content {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+        padding: 0 25px;
+    }
+
+    .accordion-item.active .accordion-content {
+        max-height: 1000px;
+        padding: 0 25px 25px;
+    }
+
+    .accordion-text {
+        color: var(--text-secondary);
+        line-height: 1.8;
+    }
+
+    .accordion-text p {
+        margin-bottom: 15px;
+    }
+
+    .accordion-text ul {
+        list-style: none;
+        padding: 0;
+        margin: 15px 0;
+    }
+
+    .accordion-text li {
+        padding: 8px 0;
+        padding-left: 25px;
+        position: relative;
+    }
+
+    .accordion-text li::before {
+        content: '•';
+        position: absolute;
+        left: 0;
+        color: var(--accent-blue);
+    }
+
+    /* Highlight Box */
+    .highlight-box {
+        background: rgba(0, 207, 255, 0.1);
+        border: 1px solid var(--accent-blue);
+        border-radius: 12px;
+        padding: 20px;
+        margin: 20px 0;
+        color: var(--text-primary);
+    }
+
+    .highlight-box strong {
+        color: var(--accent-blue);
+    }
+
+    /* Last Updated */
+    .last-updated {
+        text-align: center;
+        padding: 40px;
+        background: var(--glass-bg);
+        border: 1px solid var(--glass-border);
+        border-radius: 15px;
+        margin-top: 60px;
+        color: var(--text-secondary);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .privacy-header h1 {
+            font-size: 2em;
+        }
+
+        .accordion-header {
+            padding: 20px;
+            font-size: 1em;
+        }
+
+        .accordion-content {
+            padding: 0 20px;
+        }
+
+        .accordion-item.active .accordion-content {
+            padding: 0 20px 20px;
+        }
+    }
+</style>
+
+<div class="container-sm">
+    <section class="privacy-container">
+        <div class="privacy-header">
+            <h1>🔒 Privacy Policy</h1>
+            <p>Understanding how NeuralSync protects your data</p>
+        </div>
+
+        <div class="accordion">
+            <!-- Item 1 -->
+            <div class="accordion-item active">
+                <button class="accordion-header" onclick="toggleAccordion(this)">
+                    <span>1. Information We Collect</span>
+                    <i class="fas fa-chevron-down accordion-icon"></i>
+                </button>
+                <div class="accordion-content">
+                    <div class="accordion-text">
+                        <p>
+                            NeuralSync collects the following information when you use our platform:
+                        </p>
+                        <ul>
+                            <li><strong>Conversation Data:</strong> All messages you send to NeuralSync, including user
+                                input and bot responses</li>
+                            <li><strong>Metadata:</strong> Timestamps, message hashes, and session information</li>
+                            <li><strong>Usage Analytics:</strong> Data about how you interact with our platform</li>
+                            <li><strong>Technical Information:</strong> Browser type, IP address, and device information
+                            </li>
+                        </ul>
+                        <div class="highlight-box">
+                            <strong>Important:</strong> We DO NOT collect personally identifiable information (PII) such
+                            as your name, email, or payment information unless you voluntarily provide it.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 2 -->
+            <div class="accordion-item">
+                <button class="accordion-header" onclick="toggleAccordion(this)">
+                    <span>2. How We Use Your Data</span>
+                    <i class="fas fa-chevron-down accordion-icon"></i>
+                </button>
+                <div class="accordion-content">
+                    <div class="accordion-text">
+                        <p>Your data is used for the following purposes:</p>
+                        <ul>
+                            <li><strong>Service Provision:</strong> To deliver and improve the NeuralSync chatbot
+                                experience</li>
+                            <li><strong>Analytics:</strong> To understand usage patterns and optimize our platform</li>
+                            <li><strong>Security:</strong> To detect and prevent fraud or malicious activity</li>
+                            <li><strong>Communication:</strong> To notify you about platform updates or changes to this
+                                policy</li>
+                        </ul>
+                        <p>
+                            Your conversation data is <strong>never</strong> shared with third parties, sold to
+                            advertisers, or used for training other AI models without your explicit consent.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 3 -->
+            <div class="accordion-item">
+                <button class="accordion-header" onclick="toggleAccordion(this)">
+                    <span>3. Data Security & Encryption</span>
+                    <i class="fas fa-chevron-down accordion-icon"></i>
+                </button>
+                <div class="accordion-content">
+                    <div class="accordion-text">
+                        <p>
+                            NeuralSync employs industry-standard security measures to protect your data:
+                        </p>
+                        <ul>
+                            <li><strong>SHA-256 Hashing:</strong> Every conversation is cryptographically hashed for
+                                data integrity verification</li>
+                            <li><strong>SSL/TLS Encryption:</strong> All data in transit is encrypted</li>
+                            <li><strong>Database Security:</strong> Conversations are stored securely with access
+                                controls</li>
+                            <li><strong>Regular Audits:</strong> We conduct security assessments to identify and fix
+                                vulnerabilities</li>
+                        </ul>
+                        <div class="highlight-box">
+                            <strong>Transparency Note:</strong> We believe security should be verifiable. The hashes of
+                            all conversations can be independently verified by you, ensuring no tampering has occurred.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 4 -->
+            <div class="accordion-item">
+                <button class="accordion-header" onclick="toggleAccordion(this)">
+                    <span>4. Your Rights & Data Control</span>
+                    <i class="fas fa-chevron-down accordion-icon"></i>
+                </button>
+                <div class="accordion-content">
+                    <div class="accordion-text">
+                        <p>You have complete control over your data:</p>
+                        <ul>
+                            <li><strong>Access:</strong> You can view all your conversations anytime through your
+                                dashboard</li>
+                            <li><strong>Export:</strong> You can download your complete conversation history with
+                                verification hashes</li>
+                            <li><strong>Delete:</strong> You can request permanent deletion of your data</li>
+                            <li><strong>Verification:</strong> You can independently verify the authenticity of your
+                                conversations using the provided hashes</li>
+                        </ul>
+                        <p>
+                            To exercise these rights, please contact us directly. We typically respond to data requests
+                            within 30 days.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 5 -->
+            <div class="accordion-item">
+                <button class="accordion-header" onclick="toggleAccordion(this)">
+                    <span>5. Cookies & Tracking</span>
+                    <i class="fas fa-chevron-down accordion-icon"></i>
+                </button>
+                <div class="accordion-content">
+                    <div class="accordion-text">
+                        <p>
+                            NeuralSync uses minimal cookies and tracking:
+                        </p>
+                        <ul>
+                            <li><strong>Essential Cookies:</strong> Only for session management and security</li>
+                            <li><strong>No Third-Party Trackers:</strong> We do not use Google Analytics, Facebook
+                                Pixel, or similar tracking</li>
+                            <li><strong>Privacy-First:</strong> We prioritize your privacy over advertising and
+                                analytics</li>
+                        </ul>
+                        <div class="highlight-box">
+                            We believe you have the right to privacy. We're committed to collecting only the minimum
+                            data necessary to operate our service.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 6 -->
+            <div class="accordion-item">
+                <button class="accordion-header" onclick="toggleAccordion(this)">
+                    <span>6. Changes to This Policy</span>
+                    <i class="fas fa-chevron-down accordion-icon"></i>
+                </button>
+                <div class="accordion-content">
+                    <div class="accordion-text">
+                        <p>
+                            We may update this privacy policy from time to time to reflect changes in our practices or
+                            for other operational, legal, or regulatory reasons. We will notify you of any material
+                            changes by posting the updated policy here and updating the "Last Updated" date.
+                        </p>
+                        <p>
+                            Your continued use of NeuralSync following the posting of revised Privacy Policy terms means
+                            that you accept and agree to the changes. We encourage you to review this policy
+                            periodically to stay informed about how we're protecting your information.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Last Updated -->
+        <div class="last-updated">
+            <p><strong>Last Updated:</strong> January 2025</p>
+            <p>For questions about this privacy policy, please contact us at: privacy@neuralsync.ai</p>
+        </div>
+    </section>
+</div>
+
+<script>
+    function toggleAccordion(header) {
+        const item = header.parentElement;
+        const isActive = item.classList.contains('active');
+
+        // Close all other items
+        document.querySelectorAll('.accordion-item').forEach(element => {
+            element.classList.remove('active');
+        });
+
+        // Toggle current item
+        if (!isActive) {
+            item.classList.add('active');
+        }
+    }
+</script>
+
+{% endblock %}

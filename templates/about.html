@@ -1,187 +1,55 @@
 {% extends "base.html" %}
 
-{% block title %}About - NeuralSync{% endblock %}
-
 {% block content %}
-<div class="about-container">
-    <div class="about-header">
-        <h1>ℹ️ About NeuralSync</h1>
-        <p class="tagline">AI Chatbot Platform with Dashboard and Secure Logs</p>
-    </div>
+<h2>About NeuralSync</h2>
 
-    <section class="about-section">
-        <h2>📖 Project Description</h2>
-        <p>
-            NeuralSync is a demo-based AI assistant web platform designed for academic and professional showcasing.
-            The project focuses on user interaction, analytics, and secure data storage using blockchain-inspired
-            concepts.
-        </p>
-    </section>
+<p>
+    NeuralSync is an AI chatbot platform designed to demonstrate modern web development,
+    data security, and user interaction using Artificial Intelligence.
+</p>
 
-    <section class="about-section">
-        <h2>🛠️ Technology Stack</h2>
-        <div class="tech-grid">
-            <div class="tech-card">
-                <h3>Frontend</h3>
-                <ul>
-                    <li>HTML5</li>
-                    <li>CSS3</li>
-                    <li>JavaScript</li>
-                    <li>Chart.js</li>
-                </ul>
-            </div>
-            <div class="tech-card">
-                <h3>Backend</h3>
-                <ul>
-                    <li>Python</li>
-                    <li>Flask Framework</li>
-                    <li>SQLite Database</li>
-                </ul>
-            </div>
-            <div class="tech-card">
-                <h3>Security</h3>
-                <ul>
-                    <li>SHA-256 Hashing</li>
-                    <li>Blockchain Concepts</li>
-                    <li>Solidity (Demo)</li>
-                </ul>
-            </div>
-        </div>
-    </section>
+<h3>🎯 Project Purpose</h3>
+<ul>
+    <li>Build an interactive AI chatbot system</li>
+    <li>Store and manage chat history securely</li>
+    <li>Demonstrate blockchain-inspired hashing security</li>
+    <li>Showcase full-stack development skills</li>
+</ul>
 
-    <section class="about-section">
-        <h2>✨ Key Features</h2>
-        <ul class="features-list">
-            <li>🤖 AI-powered chatbot interaction</li>
-            <li>📊 Real-time analytics dashboard</li>
-            <li>💬 Complete chat history system</li>
-            <li>🔒 Cryptographic message hashing</li>
-            <li>📈 Performance monitoring</li>
-            <li>🎨 Modern, responsive UI</li>
-        </ul>
-    </section>
+<h3>⚙️ Technology Stack</h3>
+<ul>
+    <li><strong>Frontend:</strong> HTML, CSS, JavaScript</li>
+    <li><strong>Backend:</strong> Python (Flask)</li>
+    <li><strong>Database:</strong> SQLite</li>
+    <li><strong>Security:</strong> SHA-256 Hashing</li>
+    <li><strong>Smart Contract (Demo):</strong> Solidity</li>
+</ul>
 
-    <section class="about-section">
-        <h2>🔐 Privacy & Security</h2>
-        <p>
-            All conversations are stored locally and secured using SHA-256 cryptographic hashing.
-            This is a demonstration platform for educational purposes.
-        </p>
-    </section>
+<h3>🔐 Security Concept</h3>
+<p>
+    Each chat message is stored with a cryptographic hash (SHA-256),
+    making the records tamper-resistant and verifiable.
+    This simulates blockchain-style immutability for learning purposes.
+</p>
 
-    <section class="about-section">
-        <h2>📬 Contact</h2>
-        <p>
-            For questions or feedback about this project, please visit the
-            <a href="https://github.com/yourusername/NeuralSync" target="_blank">GitHub repository</a>.
-        </p>
-    </section>
-</div>
+<h3>📈 Future Enhancements</h3>
+<ul>
+    <li>User authentication system</li>
+    <li>Real AI API integration</li>
+    <li>Cloud deployment</li>
+    <li>Advanced analytics dashboard</li>
+    <li>Mobile application version</li>
+</ul>
 
-<style>
-    .about-container {
-        max-width: 900px;
-        margin: 50px auto;
-        padding: 20px;
-    }
+<h3>👨‍💻 Developer</h3>
+<p>
+    This project is developed as a demonstration platform for learning and showcasing
+    AI-based web applications and security concepts.
+</p>
 
-    .about-header {
-        text-align: center;
-        margin-bottom: 50px;
-        background: white;
-        padding: 40px;
-        border-radius: 15px;
-        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-    }
+<hr>
 
-    .about-header h1 {
-        color: #2c3e50;
-        font-size: 2.5em;
-        margin-bottom: 10px;
-    }
-
-    .tagline {
-        color: #7f8c8d;
-        font-size: 1.2em;
-    }
-
-    .about-section {
-        background: white;
-        padding: 30px;
-        margin-bottom: 25px;
-        border-radius: 15px;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-    }
-
-    .about-section h2 {
-        color: #2c3e50;
-        margin-bottom: 20px;
-        padding-bottom: 10px;
-        border-bottom: 2px solid #3498db;
-    }
-
-    .about-section p {
-        color: #34495e;
-        line-height: 1.8;
-        font-size: 1.05em;
-    }
-
-    .tech-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 20px;
-        margin-top: 20px;
-    }
-
-    .tech-card {
-        background: #f8f9fa;
-        padding: 20px;
-        border-radius: 10px;
-        border-left: 4px solid #3498db;
-    }
-
-    .tech-card h3 {
-        color: #2c3e50;
-        margin-bottom: 15px;
-    }
-
-    .tech-card ul {
-        list-style: none;
-    }
-
-    .tech-card li {
-        padding: 5px 0;
-        color: #34495e;
-    }
-
-    .tech-card li:before {
-        content: "✓ ";
-        color: #27ae60;
-        font-weight: bold;
-    }
-
-    .features-list {
-        list-style: none;
-        padding: 0;
-    }
-
-    .features-list li {
-        padding: 12px;
-        margin: 8px 0;
-        background: #f8f9fa;
-        border-radius: 8px;
-        color: #2c3e50;
-        font-size: 1.05em;
-    }
-
-    .about-section a {
-        color: #3498db;
-        text-decoration: none;
-        font-weight: bold;
-    }
-
-    .about-section a:hover {
-        text-decoration: underline;
-    }
-</style>
+<p style="font-size:14px; color: #94a3b8;">
+    © 2026 NeuralSync Project | Educational & Demo Purpose Only
+</p>
 {% endblock %}

@@ -1,0 +1,120 @@
+{% extends "base.html" %}
+{% block content %}
+
+<section class="chat-container">
+    <div class="chat-wrapper">
+
+        <!-- Messages Area -->
+        <div class="chat-messages" id="chatMessages">
+
+            <!-- Welcome Bot Message -->
+            <div class="message bot">
+                <div class="message-bubble">
+                    Hello 👋 I'm NeuralSync AI. Ask me anything with full transparency.
+
+                    <div class="hash-badge">
+                        sha256: 9af23b1c34d12f5a9c3a...
+                    </div>
+                </div>
+                <div class="message-time" id="welcomeTime"></div>
+            </div>
+
+            <!-- Typing Indicator -->
+            <div class="typing-indicator" id="typingIndicator" style="display:none;">
+                <div class="typing-dot"></div>
+                <div class="typing-dot"></div>
+                <div class="typing-dot"></div>
+                <span>NeuralSync is thinking...</span>
+            </div>
+
+        </div>
+
+        <!-- Input Area -->
+        <div class="chat-input-wrapper">
+            <form class="chat-input-group" id="chatForm">
+                <input 
+                    type="text"
+                    id="userInput"
+                    placeholder="Ask about transparent AI..."
+                    autocomplete="off"
+                    required
+                >
+                <button type="submit" id="sendBtn">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </form>
+        </div>
+
+    </div>
+</section>
+
+<script>
+function getCurrentTime() {
+    const now = new Date();
+    return now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+}
+
+// Set welcome message time
+document.getElementById("welcomeTime").innerText = getCurrentTime();
+
+const chatForm = document.getElementById("chatForm");
+const userInput = document.getElementById("userInput");
+const chatMessages = document.getElementById("chatMessages");
+const typingIndicator = document.getElementById("typingIndicator");
+const sendBtn = document.getElementById("sendBtn");
+
+chatForm.addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const message = userInput.value.trim();
+    if (!message) return;
+
+    // USER MESSAGE
+    const userDiv = document.createElement("div");
+    userDiv.className = "message user";
+    userDiv.innerHTML = `
+        <div class="message-bubble">
+            ${message}
+        </div>
+        <div class="message-time">${getCurrentTime()}</div>
+    `;
+    chatMessages.appendChild(userDiv);
+
+    userInput.value = "";
+
+    // Show typing indicator
+    typingIndicator.style.display = "flex";
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+
+    userInput.disabled = true;
+    sendBtn.disabled = true;
+
+    // Fake bot response (replace with backend later)
+    setTimeout(() => {
+        typingIndicator.style.display = "none";
+
+        const botDiv = document.createElement("div");
+        botDiv.className = "message bot";
+        botDiv.innerHTML = `
+            <div class="message-bubble">
+                This is NeuralSync AI response with SHA-256 verification.
+
+                <div class="hash-badge">
+                    sha256: ${Math.random().toString(36).substring(2,15)}...
+                </div>
+            </div>
+            <div class="message-time">${getCurrentTime()}</div>
+        `;
+        chatMessages.appendChild(botDiv);
+
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+
+        userInput.disabled = false;
+        sendBtn.disabled = false;
+        userInput.focus();
+
+    }, 1500);
+});
+</script>
+
+{% endblock %}
