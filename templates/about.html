@@ -1,55 +1,103 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h2>About NeuralSync</h2>
 
-<p>
-    NeuralSync is an AI chatbot platform designed to demonstrate modern web development,
-    data security, and user interaction using Artificial Intelligence.
-</p>
+<div class="about-wrapper">
 
-<h3>🎯 Project Purpose</h3>
-<ul>
-    <li>Build an interactive AI chatbot system</li>
-    <li>Store and manage chat history securely</li>
-    <li>Demonstrate blockchain-inspired hashing security</li>
-    <li>Showcase full-stack development skills</li>
-</ul>
+    <!-- HERO SECTION -->
+    <section class="about-hero">
+        <h1>About NeuralSync</h1>
+        <p>
+            NeuralSync is a next-generation AI chat platform focused on transparency,
+            security, and intelligent human-computer interaction.
+        </p>
+    </section>
 
-<h3>⚙️ Technology Stack</h3>
-<ul>
-    <li><strong>Frontend:</strong> HTML, CSS, JavaScript</li>
-    <li><strong>Backend:</strong> Python (Flask)</li>
-    <li><strong>Database:</strong> SQLite</li>
-    <li><strong>Security:</strong> SHA-256 Hashing</li>
-    <li><strong>Smart Contract (Demo):</strong> Solidity</li>
-</ul>
+    <!-- MISSION / VISION -->
+    <section class="about-grid">
+        <div class="about-card">
+            <h3><i class="fa-solid fa-bullseye"></i> Our Mission</h3>
+            <p>
+                To build secure, intelligent, and transparent AI systems that empower
+                users through meaningful conversations and trusted data handling.
+            </p>
+        </div>
 
-<h3>🔐 Security Concept</h3>
-<p>
-    Each chat message is stored with a cryptographic hash (SHA-256),
-    making the records tamper-resistant and verifiable.
-    This simulates blockchain-style immutability for learning purposes.
-</p>
+        <div class="about-card">
+            <h3><i class="fa-solid fa-eye"></i> Our Vision</h3>
+            <p>
+                To become a learning platform demonstrating how artificial intelligence
+                and security technologies can work together responsibly.
+            </p>
+        </div>
+    </section>
 
-<h3>📈 Future Enhancements</h3>
-<ul>
-    <li>User authentication system</li>
-    <li>Real AI API integration</li>
-    <li>Cloud deployment</li>
-    <li>Advanced analytics dashboard</li>
-    <li>Mobile application version</li>
-</ul>
+    <!-- PURPOSE -->
+    <section class="about-card">
+        <h3><i class="fa-solid fa-diagram-project"></i> Project Purpose</h3>
+        <ul>
+            <li>Interactive AI chatbot system</li>
+            <li>Secure chat history management</li>
+            <li>Blockchain-inspired hashing security</li>
+            <li>Full-stack development showcase</li>
+        </ul>
+    </section>
 
-<h3>👨‍💻 Developer</h3>
-<p>
-    This project is developed as a demonstration platform for learning and showcasing
-    AI-based web applications and security concepts.
-</p>
+    <!-- TECHNOLOGY -->
+    <section class="about-card">
+        <h3><i class="fa-solid fa-gears"></i> Technology Stack</h3>
+        <div class="tech-grid">
+            <span>HTML</span>
+            <span>CSS</span>
+            <span>JavaScript</span>
+            <span>Python (Flask)</span>
+            <span>SQLite</span>
+            <span>SHA-256</span>
+            <span>Solidity (Demo)</span>
+        </div>
+    </section>
 
-<hr>
+    <!-- SECURITY -->
+    <section class="about-card">
+        <h3><i class="fa-solid fa-shield-halved"></i> Security Concept</h3>
+        <p>
+            Each chat message is protected using cryptographic hashing (SHA-256),
+            ensuring tamper resistance and record verification. This simulates
+            blockchain-style immutability for educational purposes.
+        </p>
+    </section>
 
-<p style="font-size:14px; color: #94a3b8;">
-    © 2026 NeuralSync Project | Educational & Demo Purpose Only
-</p>
+    <!-- FUTURE -->
+    <section class="about-card">
+        <h3><i class="fa-solid fa-chart-line"></i> Future Roadmap</h3>
+        <ul>
+            <li>User authentication system</li>
+            <li>Real AI API integration</li>
+            <li>Cloud deployment</li>
+            <li>Advanced analytics dashboard</li>
+            <li>Mobile application</li>
+        </ul>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="about-card contact-card" id="contact">
+        <h3><i class="fa-solid fa-envelope"></i> Contact Us</h3>
+        <p>For inquiries or collaboration opportunities, reach out to us.</p>
+
+        <form class="contact-form">
+            <input type="text" placeholder="Full Name" required>
+            <input type="email" placeholder="Email Address" required>
+            <textarea rows="4" placeholder="Your Message" required></textarea>
+            <button type="submit">
+                <i class="fa-solid fa-paper-plane"></i> Send Message
+            </button>
+        </form>
+    </section>
+
+    <footer class="about-footer">
+        © 2026 NeuralSync. All rights reserved.
+    </footer>
+
+</div>
+
 {% endblock %}
